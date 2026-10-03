@@ -1,1 +1,655 @@
+{
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "my_profile2",
+      "store_fakeip": true
+    },
+    "clash_api": {
+      "external_ui": "ui",
+      "external_controller": "0.0.0.0:9090",
+      "external_ui_download_detour": "选择代理",
+      "default_mode": "规则匹配"
+    }
+  },
 
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "type": "tls",
+        "server": "8.8.8.8",
+        "detour": "选择代理"
+      },
+      {
+        "tag": "local-dns",
+        "type": "tls",
+        "server": "223.5.5.5"
+      },
+      {
+        "tag": "fakeip-dns",
+        "type": "fakeip",
+        "inet4_range": "198.18.0.0/15"
+      }
+    ],
+
+    "rules": [
+      {
+        "rule_set": [
+          "geosite-youtube",
+          "geosite-telegram",
+          "geosite-category-media",
+          "geosite-openai",
+          "geosite-speedtest",
+          "geosite-github",
+          "geosite-jetbrains",
+          "geosite-spotify",
+          "geosite-cloudflare",
+          "geosite-google"
+        ],
+        "rewrite_ttl": 1,
+        "server": "fakeip-dns"
+      },
+      {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國"
+        ],
+        "server": "local-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-cn",
+          "geosite-icloud@cn",
+          "geosite-apple@cn"
+        ],
+        "server": "local-dns"
+      },
+      {
+        "query_type": [
+          "A"
+        ],
+        "rewrite_ttl": 1,
+        "server": "fakeip-dns"
+      }
+    ],
+
+    "strategy": "ipv4_only"
+  },
+
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 8888
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": "172.19.0.1/30",
+      "stack": "mixed",
+      "auto_route": true,
+      "strict_route": false
+    }
+  ],
+
+  "outbounds": [
+
+    {
+      "tag": "选择代理",
+      "type": "selector",
+      "outbounds": [
+        "☁️ 自动选择",
+        "☁️ 手动选择",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "🔧 直连"
+      ],
+      "default": "☁️ 自动选择",
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "☁️ 手动选择",
+      "type": "selector",
+      "outbounds": [
+        {{ "" | NotesName }}
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "☁️ 自动选择",
+      "type": "urltest",
+      "outbounds": [
+        {{ "" | NotesName }}
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "🇯🇵 日本",
+      "type": "urltest",
+      "outbounds": [
+        {{ "日本|JP|Japan|🇯🇵" | NotesName }}
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "🇰🇷 韩国",
+      "type": "urltest",
+      "outbounds": [
+        {{ "韩国|韓國|KR|Korea|South Korea|🇰🇷" | NotesName }}
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "🇭🇰 香港",
+      "type": "urltest",
+      "outbounds": [
+        {{ "香港|HK|Hong Kong|🇭🇰" | NotesName }}
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "🇸🇬 新加坡",
+      "type": "urltest",
+      "outbounds": [
+        {{ "新加坡|SG|Singapore|🇸🇬" | NotesName }}
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "🇺🇸 美国",
+      "type": "urltest",
+      "outbounds": [
+        {{ "美国|US|USA|United States|America|🇺🇸" | NotesName }}
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "广告拦截",
+      "type": "selector",
+      "outbounds": [
+        "🛑 拦截",
+        "🔧 直连",
+        "选择代理"
+      ],
+      "default": "🛑 拦截",
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Youtube",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Telegram",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Openai",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Speedtest",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Github",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Jetbrains",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Spotify",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Category-media",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Cloudflare",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "tag": "Google",
+      "type": "selector",
+      "outbounds": [
+        "选择代理",
+        "🇯🇵 日本",
+        "🇰🇷 韩国",
+        "🇭🇰 香港",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国",
+        "☁️ 手动选择",
+        "☁️ 自动选择",
+        "🔧 直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+
+    {
+      "type": "direct",
+      "tag": "🔧 直连"
+    },
+
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+
+    {
+      "tag": "🛑 拦截",
+      "type": "block"
+    },
+
+    {{ Nodes }}
+  ],
+
+  "route": {
+    "rule_set": [
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-category-ads-all",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-youtube",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/youtube.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-telegram",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/telegram.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geoip-telegram",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-category-media",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-media.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-openai",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-speedtest",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/speedtest.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-github",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-jetbrains",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/jetbrains.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-spotify",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-cloudflare",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cloudflare.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geoip-cloudflare",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cloudflare.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-google",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "GeoIP2-CN",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-cn",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-icloud@cn",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/icloud@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "tag": "geosite-apple@cn",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple@cn.srs"
+      }
+    ],
+
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "port": 53,
+        "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "action": "reject"
+      },
+      {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國"
+        ],
+        "outbound": "🔧 直连"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all"
+        ],
+        "outbound": "广告拦截"
+      },
+      {
+        "domain_suffix": [
+          "ping0.cc"
+        ],
+        "outbound": "选择代理"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "🔧 直连"
+      },
+      {
+        "clash_mode": "直连",
+        "outbound": "🔧 直连"
+      },
+      {
+        "clash_mode": "全局",
+        "outbound": "选择代理"
+      },
+      {
+        "rule_set": "geosite-youtube",
+        "outbound": "Youtube"
+      },
+      {
+        "rule_set": "geosite-telegram",
+        "outbound": "Telegram"
+      },
+      {
+        "rule_set": "geoip-telegram",
+        "outbound": "Telegram"
+      },
+      {
+        "rule_set": "geosite-category-media",
+        "outbound": "Category-media"
+      },
+      {
+        "rule_set": "geosite-openai",
+        "outbound": "Openai"
+      },
+      {
+        "rule_set": "geosite-speedtest",
+        "outbound": "Speedtest"
+      },
+      {
+        "rule_set": "geosite-github",
+        "outbound": "Github"
+      },
+      {
+        "rule_set": "geosite-jetbrains",
+        "outbound": "Jetbrains"
+      },
+      {
+        "rule_set": "geosite-spotify",
+        "outbound": "Spotify"
+      },
+      {
+        "rule_set": "geosite-cloudflare",
+        "outbound": "Cloudflare"
+      },
+      {
+        "rule_set": "geoip-cloudflare",
+        "outbound": "Cloudflare"
+      },
+      {
+        "rule_set": "geosite-google",
+        "outbound": "Google"
+      },
+      {
+        "rule_set": [
+          "GeoIP2-CN",
+          "geosite-cn",
+          "geosite-icloud@cn",
+          "geosite-apple@cn"
+        ],
+        "outbound": "🔧 直连"
+      }
+    ],
+
+    "auto_detect_interface": true,
+    "default_domain_resolver": "local-dns",
+    "final": "选择代理",
+    "default_http_client": "rule-set-proxy"
+  },
+
+  "http_clients": [
+    {
+      "tag": "rule-set-proxy",
+      "detour": "选择代理"
+    }
+  ]
+}
