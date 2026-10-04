@@ -14,11 +14,13 @@
       "default_mode": "规则匹配"
     }
   },
+
   "log": {
     "disabled": false,
     "level": "info",
     "timestamp": true
   },
+
   "dns": {
     "servers": [
       {
@@ -38,6 +40,7 @@
         "inet4_range": "198.18.0.0/15"
       }
     ],
+
     "rules": [
       {
         "rule_set": [
@@ -85,6 +88,7 @@
         "server": "fakeip-dns"
       }
     ],
+
     "strategy": "ipv4_only"
   },
 
@@ -702,5 +706,4 @@
     "default_domain_resolver": "local-dns",
     "final": "选择代理"
   }
-
 }
