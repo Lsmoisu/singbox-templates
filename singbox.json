@@ -9,6 +9,7 @@
     "clash_api": {
       "external_ui": "ui",
       "external_controller": "0.0.0.0:9090",
+      "secret": "abc125412",
       "external_ui_download_detour": "选择代理",
       "default_mode": "规则匹配"
     }
