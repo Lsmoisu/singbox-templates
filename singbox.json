@@ -3,13 +3,13 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "my_universal_profile",
+      "cache_id": "my_profile2",
       "store_fakeip": true
     },
     "clash_api": {
       "external_ui": "ui",
       "external_controller": "0.0.0.0:9090",
-      "secret": "abc125412",
+	  "secret": "abc125412",
       "external_ui_download_detour": "选择代理",
       "default_mode": "规则匹配"
     }
@@ -87,6 +87,7 @@
     ],
     "strategy": "ipv4_only"
   },
+
   "inbounds": [
     {
       "type": "tun",
@@ -95,9 +96,12 @@
       "auto_route": true
     }
   ],
+
   "outbounds": [
+
     {
       "tag": "选择代理",
+      "type": "selector",
       "outbounds": [
         "☁️ 自动选择",
         "☁️ 手动选择",
@@ -111,84 +115,91 @@
         "🇰🇷 韩国家宽",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector",
-      "default": "☁️ 自动选择"
+      "default": "☁️ 自动选择",
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "☁️ 手动选择",
+      "type": "selector",
       "outbounds": [
         {{ "" | NotesName }}
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "☁️ 自动选择",
+      "type": "urltest",
       "outbounds": [
         {{ "" | NotesName }}
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "interrupt_exist_connections": true,
-      "type": "urltest"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇯🇵 日本",
+      "type": "urltest",
       "outbounds": [
         {{ "日本|JP|Japan|🇯🇵" | NotesName }}
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "interrupt_exist_connections": true,
-      "type": "urltest"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇰🇷 韩国",
+      "type": "urltest",
       "outbounds": [
         {{ "韩国|韓國|KR|Korea|South Korea|🇰🇷" | NotesName }}
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "interrupt_exist_connections": true,
-      "type": "urltest"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇭🇰 香港",
+      "type": "urltest",
       "outbounds": [
         {{ "香港|HK|Hong Kong|🇭🇰" | NotesName }}
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "interrupt_exist_connections": true,
-      "type": "urltest"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇸🇬 新加坡",
+      "type": "urltest",
       "outbounds": [
         {{ "新加坡|SG|Singapore|🇸🇬" | NotesName }}
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "interrupt_exist_connections": true,
-      "type": "urltest"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇺🇸 美国",
+      "type": "urltest",
       "outbounds": [
         {{ "美国|US|USA|United States|America|🇺🇸" | NotesName }}
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "interrupt_exist_connections": true,
-      "type": "urltest"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇯🇵 日本家宽",
       "type": "urltest",
@@ -200,6 +211,7 @@
       "tolerance": 50,
       "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇺🇸 美国家宽",
       "type": "urltest",
@@ -211,6 +223,7 @@
       "tolerance": 50,
       "interrupt_exist_connections": true
     },
+
     {
       "tag": "🇰🇷 韩国家宽",
       "type": "urltest",
@@ -222,19 +235,22 @@
       "tolerance": 50,
       "interrupt_exist_connections": true
     },
+
     {
       "tag": "广告拦截",
+      "type": "selector",
       "outbounds": [
         "🛑 拦截",
         "🔧 直连",
         "选择代理"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector",
-      "default": "🛑 拦截"
+      "default": "🛑 拦截",
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Youtube",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -249,11 +265,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Telegram",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -268,11 +285,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Openai",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -287,11 +305,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Speedtest",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -306,11 +325,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Github",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -325,11 +345,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Jetbrains",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -344,11 +365,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Spotify",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -363,11 +385,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Category-media",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -382,11 +405,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Cloudflare",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -401,11 +425,12 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "tag": "Google",
+      "type": "selector",
       "outbounds": [
         "选择代理",
         "🇯🇵 日本",
@@ -420,23 +445,27 @@
         "☁️ 自动选择",
         "🔧 直连"
       ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
+      "interrupt_exist_connections": true
     },
+
     {
       "type": "direct",
       "tag": "🔧 直连"
     },
+
     {
       "type": "direct",
       "tag": "direct"
     },
+
     {
       "tag": "🛑 拦截",
       "type": "block"
     },
-    "{{ Nodes }}"
+
+    {{ Nodes }}
   ],
+
   "route": {
     "rule_set": [
       {
@@ -542,6 +571,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple@cn.srs"
       }
     ],
+
     "rules": [
       {
         "action": "sniff"
@@ -667,8 +697,10 @@
         "outbound": "🔧 直连"
       }
     ],
+
     "auto_detect_interface": true,
     "default_domain_resolver": "local-dns",
     "final": "选择代理"
   }
+
 }
