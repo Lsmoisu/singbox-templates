@@ -704,6 +704,14 @@
 
     "auto_detect_interface": true,
     "default_domain_resolver": "local-dns",
-    "final": "选择代理"
-  }
+    "final": "选择代理",
+    "default_http_client": "rule-set-proxy"
+  },
+
+  "http_clients": [
+    {
+      "tag": "rule-set-proxy",
+      "detour": "🔧 直连"
+    }
+  ]
 }
