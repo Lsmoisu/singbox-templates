@@ -193,7 +193,7 @@
     {
       "tag": "🇺🇸 美国家宽",
       "type": "urltest",
-      "outbounds": [{{ "入口2" | NotesName }}],
+      "outbounds": [{{ "US家宽" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -203,6 +203,15 @@
       "tag": "🇰🇷 韩国家宽",
       "type": "urltest",
       "outbounds": [{{ "入口3" | NotesName }}],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "🇹🇭 泰国家宽",
+      "type": "urltest",
+      "outbounds": [{{ "TH家宽" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
