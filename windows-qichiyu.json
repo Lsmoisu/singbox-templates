@@ -42,13 +42,6 @@
     ],
     "rules": [
       {
-        "query_type": [
-          "HTTPS",
-          "SVCB"
-        ],
-        "action": "reject"
-      },
-      {
         "clash_mode": "Direct",
         "server": "ali"
       },
