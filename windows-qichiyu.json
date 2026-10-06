@@ -478,7 +478,7 @@
     {
       "tag": "桥接",
       "type": "bridge"
-    }
+    },
     {{ Nodes }}
   ],
   "http_clients": [
