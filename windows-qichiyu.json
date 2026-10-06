@@ -132,13 +132,13 @@
     {
       "tag": "☁️ 手动选择",
       "type": "selector",
-      "outbounds": [],
+      "outbounds": [{{ "" | NotesName }}],
       "interrupt_exist_connections": true
     },
     {
       "tag": "☁️ 自动选择",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -147,7 +147,7 @@
     {
       "tag": "🇯🇵 日本",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "日本|JP|Japan|🇯🇵" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -156,7 +156,7 @@
     {
       "tag": "🇰🇷 韩国",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "韩国|韓國|KR|Korea|South Korea|🇰🇷" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -165,7 +165,7 @@
     {
       "tag": "🇭🇰 香港",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "香港|HK|Hong Kong|🇭🇰" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -174,7 +174,7 @@
     {
       "tag": "🇸🇬 新加坡",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "新加坡|SG|Singapore|🇸🇬" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -183,7 +183,7 @@
     {
       "tag": "🇺🇸 美国",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "美国|US|USA|United States|America|🇺🇸" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -192,7 +192,7 @@
     {
       "tag": "🇯🇵 日本家宽",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "入口1" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -201,7 +201,7 @@
     {
       "tag": "🇺🇸 美国家宽",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "入口2" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -210,7 +210,7 @@
     {
       "tag": "🇰🇷 韩国家宽",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [{{ "入口3" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
