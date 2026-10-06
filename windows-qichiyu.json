@@ -468,10 +468,6 @@
       "type": "direct",
       "domain_resolver": "ali"
     },
-    {
-      "tag": "桥接",
-      "type": "bridge"
-    },
 
     {{ Nodes }}
   ],
@@ -484,41 +480,6 @@
   
   "route": {
     "rules": [
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "port": [
-              53,
-              853
-            ],
-            "invert": true
-          },
-          {
-            "clash_mode": "Global",
-            "invert": true
-          },
-          {
-            "preferred_by": [
-              "桥接"
-            ]
-          },
-          {
-            "type": "logical",
-            "mode": "or",
-            "rules": [
-              {
-                "ip_is_private": true
-              },
-              {
-                "rule_set": "geoip-cn"
-              }
-            ]
-          }
-        ],
-        "outbound": "桥接"
-      },
       {
         "type": "logical",
         "mode": "or",
