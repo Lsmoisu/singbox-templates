@@ -120,7 +120,8 @@
         "☁️ 其他家宽",
         "☁️ 手动选择",
         "☁️ 自动选择"
-      ]
+      ],
+      "interrupt_exist_connections": true
     },
     {
       "tag": "☁️ 手动选择",
@@ -211,11 +212,8 @@
     },
     {
       "tag": "☁️ 其他家宽",
-      "type": "urltest",
+      "type": "selector",
       "outbounds": [{{ "其他家宽" | NotesName }}],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
       "interrupt_exist_connections": true
     },
     {
