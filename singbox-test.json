@@ -21,7 +21,7 @@
         "tag": "google",
         "type": "https",
         "server": "8.8.8.8",
-        "detour": "默认代理"
+        "detour": "☁️ 默认代理"
       },
       {
         "tag": "fakeip",
@@ -106,7 +106,7 @@
   },
   "outbounds": [
     {
-      "tag": "默认代理",
+      "tag": "☁️ 默认代理",
       "type": "selector",
       "outbounds": [
         "🇯🇵 日本",
@@ -117,7 +117,7 @@
         "🇯🇵 日本家宽",
         "🇺🇸 美国家宽",
         "🇰🇷 韩国家宽",
-        "其他家宽",
+        "☁️ 其他家宽",
         "☁️ 手动选择",
         "☁️ 自动选择"
       ]
@@ -210,7 +210,7 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "其他家宽",
+      "tag": "☁️ 其他家宽",
       "type": "urltest",
       "outbounds": [{{ "其他家宽" | NotesName }}],
       "url": "https://www.gstatic.com/generate_204",
@@ -222,7 +222,7 @@
       "tag": "AI",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -239,7 +239,7 @@
       "tag": "YouTube",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -256,7 +256,7 @@
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -273,7 +273,7 @@
       "tag": "Github",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -290,7 +290,7 @@
       "tag": "Telegram",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -307,7 +307,7 @@
       "tag": "TikTok",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -324,7 +324,7 @@
       "tag": "Netflix",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -341,7 +341,7 @@
       "tag": "Wallet",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -358,7 +358,7 @@
       "tag": "Steam",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -376,7 +376,7 @@
       "type": "selector",
       "outbounds": [
         "直连",
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -394,7 +394,7 @@
       "type": "selector",
       "outbounds": [
         "直连",
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -412,7 +412,7 @@
       "type": "selector",
       "outbounds": [
         "直连",
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -429,7 +429,7 @@
       "tag": "漏网之鱼",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "☁️ 手动选择",
         "☁️ 自动选择",
         "🇯🇵 日本",
@@ -456,7 +456,7 @@
       "tag": "GLOBAL",
       "type": "selector",
       "outbounds": [
-        "默认代理",
+        "☁️ 默认代理",
         "AI",
         "YouTube",
         "Google",
@@ -651,7 +651,7 @@
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "outbound": "默认代理"
+        "outbound": "☁️ 默认代理"
       },
       {
         "inbound": "mixed-in",
