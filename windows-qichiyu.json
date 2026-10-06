@@ -479,6 +479,7 @@
       "tag": "桥接",
       "type": "bridge"
     }
+    {{ Nodes }}
   ],
   "http_clients": [
     {
@@ -486,6 +487,7 @@
       "detour": "直连"
     }
   ],
+  
   "route": {
     "rules": [
       {
