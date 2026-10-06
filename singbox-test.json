@@ -218,6 +218,15 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "🇻🇳 越南家宽",
+      "type": "urltest",
+      "outbounds": [{{ "VN家宽" | NotesName }}],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "AI",
       "type": "selector",
       "outbounds": [
