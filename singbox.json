@@ -108,7 +108,7 @@
     {
       "tag": "☁️ 默认代理",
       "type": "selector",
-      "outbounds": [
+      "outbounds": [        
         "🇯🇵 日本",
         "🇰🇷 韩国",
         "🇭🇰 香港",
@@ -124,13 +124,13 @@
     {
       "tag": "☁️ 手动选择",
       "type": "selector",
-      "outbounds": [{{ "" | NotesName }}],
+      "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "tag": "☁️ 自动选择",
       "type": "urltest",
-      "outbounds": [{{ "" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -139,7 +139,7 @@
     {
       "tag": "🇯🇵 日本",
       "type": "urltest",
-      "outbounds": [{{ "日本|JP|Japan|🇯🇵" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -148,7 +148,7 @@
     {
       "tag": "🇰🇷 韩国",
       "type": "urltest",
-      "outbounds": [{{ "韩国|韓國|KR|Korea|South Korea|🇰🇷" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -157,7 +157,7 @@
     {
       "tag": "🇭🇰 香港",
       "type": "urltest",
-      "outbounds": [{{ "香港|HK|Hong Kong|🇭🇰" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -166,7 +166,7 @@
     {
       "tag": "🇺🇸 美国",
       "type": "urltest",
-      "outbounds": [{{ "美国|US|USA|United States|America|🇺🇸" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -175,7 +175,7 @@
     {
       "tag": "🇯🇵 日本家宽",
       "type": "urltest",
-      "outbounds": [{{ "JPJK" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -184,7 +184,7 @@
     {
       "tag": "🇺🇸 美国家宽",
       "type": "urltest",
-      "outbounds": [{{ "USJK" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -193,7 +193,7 @@
     {
       "tag": "🇰🇷 韩国家宽",
       "type": "urltest",
-      "outbounds": [{{ "KRJK" | NotesName }}],
+      "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
@@ -455,9 +455,7 @@
       "tag": "直连",
       "type": "direct",
       "domain_resolver": "ali"
-    },
-
-    {{ Nodes }}
+    }
   ],
   "http_clients": [
     {
