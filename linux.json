@@ -707,7 +707,7 @@
     },
     {
       "tag": "dns-lan",
-      "type": "tproxy",
+      "type": "direct",
       "listen": "192.168.2.2",
       "listen_port": 53
     }
