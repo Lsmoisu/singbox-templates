@@ -521,6 +521,12 @@
         "outbound": "直连"
       },
       {
+        "domain_suffix": [
+        "baimaodm.com"
+        ],
+          "outbound": "直连"
+      },
+      {
         "type": "logical",
         "mode": "or",
         "rules": [
