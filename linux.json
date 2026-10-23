@@ -521,9 +521,9 @@
         "outbound": "直连"
       },
       {
-        "domain_suffix": [
+        "domain_keyword": [
         "baimaodm.com",
-        "bmmdmm"
+        "bmmdmm.com"
         ],
           "outbound": "直连"
       },
