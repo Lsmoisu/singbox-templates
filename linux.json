@@ -522,7 +522,8 @@
       },
       {
         "domain_suffix": [
-        "baimaodm.com"
+        "baimaodm.com",
+        "bmmdmm"
         ],
           "outbound": "直连"
       },
