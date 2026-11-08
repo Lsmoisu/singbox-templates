@@ -521,6 +521,15 @@
         "outbound": "直连"
       },
       {
+        "domain_keyword": [
+        "baimaodm.com",
+        "bmmdmm.com",
+        "tscjzy.com",
+        "lbnz.cc"
+        ],
+          "outbound": "直连"
+      },
+      {
         "type": "logical",
         "mode": "or",
         "rules": [
