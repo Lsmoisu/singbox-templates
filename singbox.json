@@ -721,7 +721,7 @@
         "172.19.0.1/30"
       ],
       "auto_route": true,
-      "strict_route": true,
+      "strict_route": true
     },
     {
       "tag": "mixed-in",
